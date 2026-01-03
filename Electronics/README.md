@@ -1,1 +1,1 @@
-This is the electrical side of the Project
+Printable STL files, designed in Siemens NX
