@@ -1,0 +1,769 @@
+
+XC8Application1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00803e00  00803e00  00000498  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         0000008a  00000000  00000000  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  00000498  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000004c7  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000058  00000000  00000000  000004e3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00002189  00000000  00000000  0000053b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00001652  00000000  00000000  000026c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004f4  00000000  00000000  00003d16  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000bc  00000000  00000000  0000420c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000937  00000000  00000000  000042c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000024e  00000000  00000000  00004bff  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  00004e4d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000002  000003ba  000003ba  0000048e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00004e98  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.TM_sendByte 0000005e  00000290  00000290  00000364  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.TM_start 00000012  0000036c  0000036c  00000440  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.TM_stop 00000012  0000037e  0000037e  00000452  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.TM_displayInit 00000012  00000390  00000390  00000464  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.TM_printNumber 00000162  0000008a  0000008a  0000015e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.setup   00000042  000002ee  000002ee  000003c2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.__vector_3 00000024  00000330  00000330  00000404  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.main    000000a4  000001ec  000001ec  000002c0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .rodata.digitMap 0000000a  008083b0  000003b0  00000484  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 23 .bss.buttonflag 00000001  00803e00  00803e00  00000498  2**0
+                  ALLOC
+ 24 .bss.lastMode 00000001  00803e01  00803e01  00000498  2**0
+                  ALLOC
+ 25 .bss.speedMode 00000001  00803e02  00803e02  00000498  2**0
+                  ALLOC
+ 26 .text.libgcc.mul 00000018  00000354  00000354  00000428  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.__dummy_fini 00000002  000003bc  000003bc  00000490  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text.__dummy_funcs_on_exit 00000002  000003be  000003be  00000492  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 .text.__dummy_simulator_exit 00000002  000003c0  000003c0  00000494  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 .text.exit    0000000e  000003a2  000003a2  00000476  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 31 .text._Exit   00000002  000003c2  000003c2  00000496  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	1c c0       	rjmp	.+56     	; 0x3a <__ctors_end>
+   2:	db c1       	rjmp	.+950    	; 0x3ba <__bad_interrupt>
+   4:	da c1       	rjmp	.+948    	; 0x3ba <__bad_interrupt>
+   6:	94 c1       	rjmp	.+808    	; 0x330 <__vector_3>
+   8:	d8 c1       	rjmp	.+944    	; 0x3ba <__bad_interrupt>
+   a:	d7 c1       	rjmp	.+942    	; 0x3ba <__bad_interrupt>
+   c:	d6 c1       	rjmp	.+940    	; 0x3ba <__bad_interrupt>
+   e:	d5 c1       	rjmp	.+938    	; 0x3ba <__bad_interrupt>
+  10:	d4 c1       	rjmp	.+936    	; 0x3ba <__bad_interrupt>
+  12:	d3 c1       	rjmp	.+934    	; 0x3ba <__bad_interrupt>
+  14:	d2 c1       	rjmp	.+932    	; 0x3ba <__bad_interrupt>
+  16:	d1 c1       	rjmp	.+930    	; 0x3ba <__bad_interrupt>
+  18:	d0 c1       	rjmp	.+928    	; 0x3ba <__bad_interrupt>
+  1a:	cf c1       	rjmp	.+926    	; 0x3ba <__bad_interrupt>
+  1c:	ce c1       	rjmp	.+924    	; 0x3ba <__bad_interrupt>
+  1e:	cd c1       	rjmp	.+922    	; 0x3ba <__bad_interrupt>
+  20:	cc c1       	rjmp	.+920    	; 0x3ba <__bad_interrupt>
+  22:	cb c1       	rjmp	.+918    	; 0x3ba <__bad_interrupt>
+  24:	ca c1       	rjmp	.+916    	; 0x3ba <__bad_interrupt>
+  26:	c9 c1       	rjmp	.+914    	; 0x3ba <__bad_interrupt>
+  28:	c8 c1       	rjmp	.+912    	; 0x3ba <__bad_interrupt>
+  2a:	c7 c1       	rjmp	.+910    	; 0x3ba <__bad_interrupt>
+  2c:	c6 c1       	rjmp	.+908    	; 0x3ba <__bad_interrupt>
+  2e:	c5 c1       	rjmp	.+906    	; 0x3ba <__bad_interrupt>
+  30:	c4 c1       	rjmp	.+904    	; 0x3ba <__bad_interrupt>
+  32:	c3 c1       	rjmp	.+902    	; 0x3ba <__bad_interrupt>
+
+00000034 <.dinit>:
+  34:	3e 00       	.word	0x003e	; ????
+  36:	3e 03       	fmul	r19, r22
+  38:	80 00       	.word	0x0080	; ????
+
+0000003a <__ctors_end>:
+  3a:	11 24       	eor	r1, r1
+  3c:	1f be       	out	0x3f, r1	; 63
+  3e:	cf ef       	ldi	r28, 0xFF	; 255
+  40:	cd bf       	out	0x3d, r28	; 61
+  42:	df e3       	ldi	r29, 0x3F	; 63
+  44:	de bf       	out	0x3e, r29	; 62
+
+00000046 <__do_copy_data>:
+  46:	e4 e3       	ldi	r30, 0x34	; 52
+  48:	f0 e0       	ldi	r31, 0x00	; 0
+  4a:	40 e0       	ldi	r20, 0x00	; 0
+  4c:	17 c0       	rjmp	.+46     	; 0x7c <__do_clear_bss+0x8>
+  4e:	b5 91       	lpm	r27, Z+
+  50:	a5 91       	lpm	r26, Z+
+  52:	35 91       	lpm	r19, Z+
+  54:	25 91       	lpm	r18, Z+
+  56:	05 91       	lpm	r16, Z+
+  58:	07 fd       	sbrc	r16, 7
+  5a:	0c c0       	rjmp	.+24     	; 0x74 <__do_clear_bss>
+  5c:	95 91       	lpm	r25, Z+
+  5e:	85 91       	lpm	r24, Z+
+  60:	ef 01       	movw	r28, r30
+  62:	f9 2f       	mov	r31, r25
+  64:	e8 2f       	mov	r30, r24
+  66:	05 90       	lpm	r0, Z+
+  68:	0d 92       	st	X+, r0
+  6a:	a2 17       	cp	r26, r18
+  6c:	b3 07       	cpc	r27, r19
+  6e:	d9 f7       	brne	.-10     	; 0x66 <__do_copy_data+0x20>
+  70:	fe 01       	movw	r30, r28
+  72:	04 c0       	rjmp	.+8      	; 0x7c <__do_clear_bss+0x8>
+
+00000074 <__do_clear_bss>:
+  74:	1d 92       	st	X+, r1
+  76:	a2 17       	cp	r26, r18
+  78:	b3 07       	cpc	r27, r19
+  7a:	e1 f7       	brne	.-8      	; 0x74 <__do_clear_bss>
+  7c:	e9 33       	cpi	r30, 0x39	; 57
+  7e:	f4 07       	cpc	r31, r20
+  80:	31 f7       	brne	.-52     	; 0x4e <__do_copy_data+0x8>
+  82:	b4 d0       	rcall	.+360    	; 0x1ec <main>
+  84:	8e c1       	rjmp	.+796    	; 0x3a2 <exit>
+
+00000086 <_exit>:
+  86:	f8 94       	cli
+
+00000088 <__stop_program>:
+  88:	ff cf       	rjmp	.-2      	; 0x88 <__stop_program>
+
+Disassembly of section .text:
+
+000003ba <__bad_interrupt>:
+ 3ba:	22 ce       	rjmp	.-956    	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.TM_sendByte:
+
+00000290 <TM_sendByte>:
+	0x7F, // 8
+	0x6F  // 9
+};
+
+void TM_sendByte(uint8_t data){
+	for(int i = 0; i<8; i++){
+ 290:	20 e0       	ldi	r18, 0x00	; 0
+ 292:	30 e0       	ldi	r19, 0x00	; 0
+ 294:	19 c0       	rjmp	.+50     	; 0x2c8 <TM_sendByte+0x38>
+		
+		PORTB.OUTCLR = CLK;
+ 296:	91 e0       	ldi	r25, 0x01	; 1
+ 298:	90 93 26 04 	sts	0x0426, r25	; 0x800426 <__RODATA_PM_OFFSET__+0x7f8426>
+		
+		if (data & (1<<i)) // if value at index (lsb first)
+ 29c:	48 2f       	mov	r20, r24
+ 29e:	50 e0       	ldi	r21, 0x00	; 0
+ 2a0:	02 2e       	mov	r0, r18
+ 2a2:	02 c0       	rjmp	.+4      	; 0x2a8 <TM_sendByte+0x18>
+ 2a4:	55 95       	asr	r21
+ 2a6:	47 95       	ror	r20
+ 2a8:	0a 94       	dec	r0
+ 2aa:	e2 f7       	brpl	.-8      	; 0x2a4 <TM_sendByte+0x14>
+ 2ac:	40 ff       	sbrs	r20, 0
+ 2ae:	04 c0       	rjmp	.+8      	; 0x2b8 <TM_sendByte+0x28>
+		{
+			PORTB.OUTSET = DIO;
+ 2b0:	92 e0       	ldi	r25, 0x02	; 2
+ 2b2:	90 93 25 04 	sts	0x0425, r25	; 0x800425 <__RODATA_PM_OFFSET__+0x7f8425>
+ 2b6:	03 c0       	rjmp	.+6      	; 0x2be <TM_sendByte+0x2e>
+		}
+		else {
+			PORTB.OUTCLR = DIO;
+ 2b8:	92 e0       	ldi	r25, 0x02	; 2
+ 2ba:	90 93 26 04 	sts	0x0426, r25	; 0x800426 <__RODATA_PM_OFFSET__+0x7f8426>
+		}
+		
+		PORTB.OUTSET = CLK;
+ 2be:	91 e0       	ldi	r25, 0x01	; 1
+ 2c0:	90 93 25 04 	sts	0x0425, r25	; 0x800425 <__RODATA_PM_OFFSET__+0x7f8425>
+	0x7F, // 8
+	0x6F  // 9
+};
+
+void TM_sendByte(uint8_t data){
+	for(int i = 0; i<8; i++){
+ 2c4:	2f 5f       	subi	r18, 0xFF	; 255
+ 2c6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2c8:	28 30       	cpi	r18, 0x08	; 8
+ 2ca:	31 05       	cpc	r19, r1
+ 2cc:	24 f3       	brlt	.-56     	; 0x296 <TM_sendByte+0x6>
+		
+		PORTB.OUTSET = CLK;
+	}
+	
+	// WAIT FOR ACK
+	PORTB.OUTCLR = CLK;
+ 2ce:	e0 e2       	ldi	r30, 0x20	; 32
+ 2d0:	f4 e0       	ldi	r31, 0x04	; 4
+ 2d2:	81 e0       	ldi	r24, 0x01	; 1
+ 2d4:	86 83       	std	Z+6, r24	; 0x06
+	PORTB.DIRCLR = DIO; // To input
+ 2d6:	92 e0       	ldi	r25, 0x02	; 2
+ 2d8:	92 83       	std	Z+2, r25	; 0x02
+	PORTB.OUTSET = CLK;
+ 2da:	85 83       	std	Z+5, r24	; 0x05
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2dc:	a3 ec       	ldi	r26, 0xC3	; 195
+ 2de:	b9 e0       	ldi	r27, 0x09	; 9
+ 2e0:	11 97       	sbiw	r26, 0x01	; 1
+ 2e2:	f1 f7       	brne	.-4      	; 0x2e0 <TM_sendByte+0x50>
+ 2e4:	00 c0       	rjmp	.+0      	; 0x2e6 <TM_sendByte+0x56>
+ 2e6:	00 00       	nop
+	_delay_ms(1);
+	PORTB.OUTCLR = CLK;
+ 2e8:	86 83       	std	Z+6, r24	; 0x06
+	PORTB.DIRSET = DIO; // Back to Output
+ 2ea:	91 83       	std	Z+1, r25	; 0x01
+ 2ec:	08 95       	ret
+
+Disassembly of section .text.TM_start:
+
+0000036c <TM_start>:
+}
+
+void TM_start(void){
+	PORTB.OUTSET = CLK | DIO;
+ 36c:	e0 e2       	ldi	r30, 0x20	; 32
+ 36e:	f4 e0       	ldi	r31, 0x04	; 4
+ 370:	83 e0       	ldi	r24, 0x03	; 3
+ 372:	85 83       	std	Z+5, r24	; 0x05
+	PORTB.OUTCLR = DIO;
+ 374:	82 e0       	ldi	r24, 0x02	; 2
+ 376:	86 83       	std	Z+6, r24	; 0x06
+	PORTB.OUTCLR = CLK;
+ 378:	81 e0       	ldi	r24, 0x01	; 1
+ 37a:	86 83       	std	Z+6, r24	; 0x06
+ 37c:	08 95       	ret
+
+Disassembly of section .text.TM_stop:
+
+0000037e <TM_stop>:
+}
+
+void TM_stop(void){
+	PORTB.OUTCLR = CLK;
+ 37e:	e0 e2       	ldi	r30, 0x20	; 32
+ 380:	f4 e0       	ldi	r31, 0x04	; 4
+ 382:	91 e0       	ldi	r25, 0x01	; 1
+ 384:	96 83       	std	Z+6, r25	; 0x06
+	PORTB.OUTCLR = DIO;
+ 386:	82 e0       	ldi	r24, 0x02	; 2
+ 388:	86 83       	std	Z+6, r24	; 0x06
+	PORTB.OUTSET = CLK;
+ 38a:	95 83       	std	Z+5, r25	; 0x05
+	PORTB.OUTSET = DIO;
+ 38c:	85 83       	std	Z+5, r24	; 0x05
+ 38e:	08 95       	ret
+
+Disassembly of section .text.TM_displayInit:
+
+00000390 <TM_displayInit>:
+}
+void TM_displayInit(void){
+	TM_start();
+ 390:	ed df       	rcall	.-38     	; 0x36c <TM_start>
+	TM_sendByte(0x40);  // auto increment
+ 392:	80 e4       	ldi	r24, 0x40	; 64
+ 394:	7d df       	rcall	.-262    	; 0x290 <TM_sendByte>
+	TM_stop();
+ 396:	f3 df       	rcall	.-26     	; 0x37e <TM_stop>
+
+	TM_start();
+ 398:	e9 df       	rcall	.-46     	; 0x36c <TM_start>
+	TM_sendByte(0x88 | 0x07); // display ON, max brightness
+ 39a:	8f e8       	ldi	r24, 0x8F	; 143
+ 39c:	79 df       	rcall	.-270    	; 0x290 <TM_sendByte>
+	TM_stop();
+ 39e:	ef df       	rcall	.-34     	; 0x37e <TM_stop>
+ 3a0:	08 95       	ret
+
+Disassembly of section .text.TM_printNumber:
+
+0000008a <TM_printNumber>:
+}
+
+void TM_printNumber(uint16_t num)
+{
+  8a:	1f 93       	push	r17
+  8c:	cf 93       	push	r28
+  8e:	df 93       	push	r29
+  90:	00 d0       	rcall	.+0      	; 0x92 <TM_printNumber+0x8>
+  92:	00 d0       	rcall	.+0      	; 0x94 <TM_printNumber+0xa>
+  94:	cd b7       	in	r28, 0x3d	; 61
+  96:	de b7       	in	r29, 0x3e	; 62
+  98:	ac 01       	movw	r20, r24
+	uint8_t digits[4];
+
+	if (num > 9999) num = 9999;
+  9a:	80 31       	cpi	r24, 0x10	; 16
+  9c:	97 42       	sbci	r25, 0x27	; 39
+  9e:	10 f0       	brcs	.+4      	; 0xa4 <TM_printNumber+0x1a>
+  a0:	4f e0       	ldi	r20, 0x0F	; 15
+  a2:	57 e2       	ldi	r21, 0x27	; 39
+
+	digits[0] = digitMap[(num / 1000) % 10];
+  a4:	9a 01       	movw	r18, r20
+  a6:	36 95       	lsr	r19
+  a8:	27 95       	ror	r18
+  aa:	36 95       	lsr	r19
+  ac:	27 95       	ror	r18
+  ae:	36 95       	lsr	r19
+  b0:	27 95       	ror	r18
+  b2:	a5 ec       	ldi	r26, 0xC5	; 197
+  b4:	b0 e2       	ldi	r27, 0x20	; 32
+  b6:	4e d1       	rcall	.+668    	; 0x354 <__umulhisi3>
+  b8:	fc 01       	movw	r30, r24
+  ba:	f2 95       	swap	r31
+  bc:	e2 95       	swap	r30
+  be:	ef 70       	andi	r30, 0x0F	; 15
+  c0:	ef 27       	eor	r30, r31
+  c2:	ff 70       	andi	r31, 0x0F	; 15
+  c4:	ef 27       	eor	r30, r31
+  c6:	9f 01       	movw	r18, r30
+  c8:	ad ec       	ldi	r26, 0xCD	; 205
+  ca:	bc ec       	ldi	r27, 0xCC	; 204
+  cc:	43 d1       	rcall	.+646    	; 0x354 <__umulhisi3>
+  ce:	96 95       	lsr	r25
+  d0:	87 95       	ror	r24
+  d2:	96 95       	lsr	r25
+  d4:	87 95       	ror	r24
+  d6:	96 95       	lsr	r25
+  d8:	87 95       	ror	r24
+  da:	9c 01       	movw	r18, r24
+  dc:	22 0f       	add	r18, r18
+  de:	33 1f       	adc	r19, r19
+  e0:	88 0f       	add	r24, r24
+  e2:	99 1f       	adc	r25, r25
+  e4:	88 0f       	add	r24, r24
+  e6:	99 1f       	adc	r25, r25
+  e8:	88 0f       	add	r24, r24
+  ea:	99 1f       	adc	r25, r25
+  ec:	82 0f       	add	r24, r18
+  ee:	93 1f       	adc	r25, r19
+  f0:	9f 01       	movw	r18, r30
+  f2:	28 1b       	sub	r18, r24
+  f4:	39 0b       	sbc	r19, r25
+  f6:	f9 01       	movw	r30, r18
+  f8:	e0 55       	subi	r30, 0x50	; 80
+  fa:	fc 47       	sbci	r31, 0x7C	; 124
+  fc:	80 81       	ld	r24, Z
+  fe:	89 83       	std	Y+1, r24	; 0x01
+	digits[1] = digitMap[(num / 100)  % 10];
+ 100:	9a 01       	movw	r18, r20
+ 102:	36 95       	lsr	r19
+ 104:	27 95       	ror	r18
+ 106:	36 95       	lsr	r19
+ 108:	27 95       	ror	r18
+ 10a:	ab e7       	ldi	r26, 0x7B	; 123
+ 10c:	b4 e1       	ldi	r27, 0x14	; 20
+ 10e:	22 d1       	rcall	.+580    	; 0x354 <__umulhisi3>
+ 110:	fc 01       	movw	r30, r24
+ 112:	f6 95       	lsr	r31
+ 114:	e7 95       	ror	r30
+ 116:	9f 01       	movw	r18, r30
+ 118:	ad ec       	ldi	r26, 0xCD	; 205
+ 11a:	bc ec       	ldi	r27, 0xCC	; 204
+ 11c:	1b d1       	rcall	.+566    	; 0x354 <__umulhisi3>
+ 11e:	96 95       	lsr	r25
+ 120:	87 95       	ror	r24
+ 122:	96 95       	lsr	r25
+ 124:	87 95       	ror	r24
+ 126:	96 95       	lsr	r25
+ 128:	87 95       	ror	r24
+ 12a:	9c 01       	movw	r18, r24
+ 12c:	22 0f       	add	r18, r18
+ 12e:	33 1f       	adc	r19, r19
+ 130:	88 0f       	add	r24, r24
+ 132:	99 1f       	adc	r25, r25
+ 134:	88 0f       	add	r24, r24
+ 136:	99 1f       	adc	r25, r25
+ 138:	88 0f       	add	r24, r24
+ 13a:	99 1f       	adc	r25, r25
+ 13c:	82 0f       	add	r24, r18
+ 13e:	93 1f       	adc	r25, r19
+ 140:	9f 01       	movw	r18, r30
+ 142:	28 1b       	sub	r18, r24
+ 144:	39 0b       	sbc	r19, r25
+ 146:	f9 01       	movw	r30, r18
+ 148:	e0 55       	subi	r30, 0x50	; 80
+ 14a:	fc 47       	sbci	r31, 0x7C	; 124
+ 14c:	80 81       	ld	r24, Z
+ 14e:	8a 83       	std	Y+2, r24	; 0x02
+	digits[2] = digitMap[(num / 10)   % 10];
+ 150:	9a 01       	movw	r18, r20
+ 152:	00 d1       	rcall	.+512    	; 0x354 <__umulhisi3>
+ 154:	fc 01       	movw	r30, r24
+ 156:	f6 95       	lsr	r31
+ 158:	e7 95       	ror	r30
+ 15a:	f6 95       	lsr	r31
+ 15c:	e7 95       	ror	r30
+ 15e:	f6 95       	lsr	r31
+ 160:	e7 95       	ror	r30
+ 162:	9f 01       	movw	r18, r30
+ 164:	f7 d0       	rcall	.+494    	; 0x354 <__umulhisi3>
+ 166:	96 95       	lsr	r25
+ 168:	87 95       	ror	r24
+ 16a:	96 95       	lsr	r25
+ 16c:	87 95       	ror	r24
+ 16e:	96 95       	lsr	r25
+ 170:	87 95       	ror	r24
+ 172:	9c 01       	movw	r18, r24
+ 174:	22 0f       	add	r18, r18
+ 176:	33 1f       	adc	r19, r19
+ 178:	88 0f       	add	r24, r24
+ 17a:	99 1f       	adc	r25, r25
+ 17c:	88 0f       	add	r24, r24
+ 17e:	99 1f       	adc	r25, r25
+ 180:	88 0f       	add	r24, r24
+ 182:	99 1f       	adc	r25, r25
+ 184:	82 0f       	add	r24, r18
+ 186:	93 1f       	adc	r25, r19
+ 188:	9f 01       	movw	r18, r30
+ 18a:	28 1b       	sub	r18, r24
+ 18c:	39 0b       	sbc	r19, r25
+ 18e:	d9 01       	movw	r26, r18
+ 190:	a0 55       	subi	r26, 0x50	; 80
+ 192:	bc 47       	sbci	r27, 0x7C	; 124
+ 194:	8c 91       	ld	r24, X
+ 196:	8b 83       	std	Y+3, r24	; 0x03
+	digits[3] = digitMap[num % 10];
+ 198:	cf 01       	movw	r24, r30
+ 19a:	88 0f       	add	r24, r24
+ 19c:	99 1f       	adc	r25, r25
+ 19e:	ee 0f       	add	r30, r30
+ 1a0:	ff 1f       	adc	r31, r31
+ 1a2:	ee 0f       	add	r30, r30
+ 1a4:	ff 1f       	adc	r31, r31
+ 1a6:	ee 0f       	add	r30, r30
+ 1a8:	ff 1f       	adc	r31, r31
+ 1aa:	e8 0f       	add	r30, r24
+ 1ac:	f9 1f       	adc	r31, r25
+ 1ae:	4e 1b       	sub	r20, r30
+ 1b0:	5f 0b       	sbc	r21, r31
+ 1b2:	fa 01       	movw	r30, r20
+ 1b4:	e0 55       	subi	r30, 0x50	; 80
+ 1b6:	fc 47       	sbci	r31, 0x7C	; 124
+ 1b8:	80 81       	ld	r24, Z
+ 1ba:	8c 83       	std	Y+4, r24	; 0x04
+
+	TM_start();
+ 1bc:	d7 d0       	rcall	.+430    	; 0x36c <TM_start>
+	TM_sendByte(0xC0);      // Start form 0
+ 1be:	80 ec       	ldi	r24, 0xC0	; 192
+ 1c0:	67 d0       	rcall	.+206    	; 0x290 <TM_sendByte>
+	for (uint8_t i = 0; i < 4; i++)
+ 1c2:	10 e0       	ldi	r17, 0x00	; 0
+ 1c4:	09 c0       	rjmp	.+18     	; 0x1d8 <TM_printNumber+0x14e>
+	TM_sendByte(digits[i]);
+ 1c6:	e1 e0       	ldi	r30, 0x01	; 1
+ 1c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ca:	ec 0f       	add	r30, r28
+ 1cc:	fd 1f       	adc	r31, r29
+ 1ce:	e1 0f       	add	r30, r17
+ 1d0:	f1 1d       	adc	r31, r1
+ 1d2:	80 81       	ld	r24, Z
+ 1d4:	5d d0       	rcall	.+186    	; 0x290 <TM_sendByte>
+	digits[2] = digitMap[(num / 10)   % 10];
+	digits[3] = digitMap[num % 10];
+
+	TM_start();
+	TM_sendByte(0xC0);      // Start form 0
+	for (uint8_t i = 0; i < 4; i++)
+ 1d6:	1f 5f       	subi	r17, 0xFF	; 255
+ 1d8:	14 30       	cpi	r17, 0x04	; 4
+ 1da:	a8 f3       	brcs	.-22     	; 0x1c6 <TM_printNumber+0x13c>
+	TM_sendByte(digits[i]);
+	TM_stop();
+ 1dc:	d0 d0       	rcall	.+416    	; 0x37e <TM_stop>
+}
+ 1de:	24 96       	adiw	r28, 0x04	; 4
+ 1e0:	cd bf       	out	0x3d, r28	; 61
+ 1e2:	de bf       	out	0x3e, r29	; 62
+ 1e4:	df 91       	pop	r29
+ 1e6:	cf 91       	pop	r28
+ 1e8:	1f 91       	pop	r17
+ 1ea:	08 95       	ret
+
+Disassembly of section .text.setup:
+
+000002ee <setup>:
+
+ 
+
+void setup(void){
+	// Setup cpu clockspeed
+	CPU_CCP = CCP_IOREG_gc; // Write protection off
+ 2ee:	88 ed       	ldi	r24, 0xD8	; 216
+ 2f0:	84 bf       	out	0x34, r24	; 52
+	CLKCTRL.MCLKCTRLB = CLKCTRL_PEN_bm | CLKCTRL_PDIV_2X_gc; // 20 MHz clk, 2x Prescale = 10 MHZ
+ 2f2:	81 e0       	ldi	r24, 0x01	; 1
+ 2f4:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <__RODATA_PM_OFFSET__+0x7f8061>
+
+	
+	// Buttons to input
+	PORTA.DIRCLR = Button1;
+ 2f8:	e0 e0       	ldi	r30, 0x00	; 0
+ 2fa:	f4 e0       	ldi	r31, 0x04	; 4
+ 2fc:	90 e8       	ldi	r25, 0x80	; 128
+ 2fe:	92 83       	std	Z+2, r25	; 0x02
+	PORTA.DIRCLR = Button2;
+ 300:	90 e4       	ldi	r25, 0x40	; 64
+ 302:	92 83       	std	Z+2, r25	; 0x02
+	// Button internal pull-ups
+	PORTA.PIN7CTRL = PORT_PULLUPEN_bm;
+ 304:	98 e0       	ldi	r25, 0x08	; 8
+ 306:	97 8b       	std	Z+23, r25	; 0x17
+	PORTA.PIN6CTRL = PORT_PULLUPEN_bm;
+ 308:	96 8b       	std	Z+22, r25	; 0x16
+	// Button interrupts
+	PORTA.PIN7CTRL |= PORT_ISC_FALLING_gc;
+ 30a:	97 89       	ldd	r25, Z+23	; 0x17
+ 30c:	93 60       	ori	r25, 0x03	; 3
+ 30e:	97 8b       	std	Z+23, r25	; 0x17
+	PORTA.PIN6CTRL |= PORT_ISC_FALLING_gc;
+ 310:	96 89       	ldd	r25, Z+22	; 0x16
+ 312:	93 60       	ori	r25, 0x03	; 3
+ 314:	96 8b       	std	Z+22, r25	; 0x16
+	// On board led output
+	PORTA.DIRSET = LedPin;
+ 316:	94 e0       	ldi	r25, 0x04	; 4
+ 318:	91 83       	std	Z+1, r25	; 0x01
+	PORTA.OUTSET = LedPin; // Led on
+ 31a:	95 83       	std	Z+5, r25	; 0x05
+	// TM 1637 display
+	PORTB.DIRSET = CLK; // Both to output
+ 31c:	e0 e2       	ldi	r30, 0x20	; 32
+ 31e:	f4 e0       	ldi	r31, 0x04	; 4
+ 320:	81 83       	std	Z+1, r24	; 0x01
+	PORTB.DIRSET = DIO;
+ 322:	92 e0       	ldi	r25, 0x02	; 2
+ 324:	91 83       	std	Z+1, r25	; 0x01
+	PORTB.OUTSET = CLK; // Both high
+ 326:	85 83       	std	Z+5, r24	; 0x05
+	PORTB.OUTSET = DIO;
+ 328:	95 83       	std	Z+5, r25	; 0x05
+	// 
+	TM_displayInit();
+ 32a:	32 d0       	rcall	.+100    	; 0x390 <TM_displayInit>
+	sei();
+ 32c:	78 94       	sei
+ 32e:	08 95       	ret
+
+Disassembly of section .text.__vector_3:
+
+00000330 <__vector_3>:
+}
+
+ISR(PORTA_PORT_vect){
+ 330:	1f 92       	push	r1
+ 332:	0f 92       	push	r0
+ 334:	0f b6       	in	r0, 0x3f	; 63
+ 336:	0f 92       	push	r0
+ 338:	11 24       	eor	r1, r1
+ 33a:	8f 93       	push	r24
+	PORTA.INTFLAGS = 0xff;
+ 33c:	8f ef       	ldi	r24, 0xFF	; 255
+ 33e:	80 93 09 04 	sts	0x0409, r24	; 0x800409 <__RODATA_PM_OFFSET__+0x7f8409>
+	buttonflag = 1;
+ 342:	81 e0       	ldi	r24, 0x01	; 1
+ 344:	80 93 00 3e 	sts	0x3E00, r24	; 0x803e00 <__DATA_REGION_ORIGIN__>
+}
+ 348:	8f 91       	pop	r24
+ 34a:	0f 90       	pop	r0
+ 34c:	0f be       	out	0x3f, r0	; 63
+ 34e:	0f 90       	pop	r0
+ 350:	1f 90       	pop	r1
+ 352:	18 95       	reti
+
+Disassembly of section .text.main:
+
+000001ec <main>:
+
+int main(void)
+{
+	setup();
+ 1ec:	80 d0       	rcall	.+256    	; 0x2ee <setup>
+	TM_printNumber(0000);
+ 1ee:	80 e0       	ldi	r24, 0x00	; 0
+ 1f0:	90 e0       	ldi	r25, 0x00	; 0
+ 1f2:	4b df       	rcall	.-362    	; 0x8a <__data_load_end>
+    while(1)
+    {
+		if(buttonflag){
+ 1f4:	80 91 00 3e 	lds	r24, 0x3E00	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 1f8:	88 23       	and	r24, r24
+ 1fa:	09 f1       	breq	.+66     	; 0x23e <__DATA_REGION_LENGTH__+0x3e>
+ 1fc:	2f e5       	ldi	r18, 0x5F	; 95
+ 1fe:	8a ee       	ldi	r24, 0xEA	; 234
+ 200:	90 e0       	ldi	r25, 0x00	; 0
+ 202:	21 50       	subi	r18, 0x01	; 1
+ 204:	80 40       	sbci	r24, 0x00	; 0
+ 206:	90 40       	sbci	r25, 0x00	; 0
+ 208:	e1 f7       	brne	.-8      	; 0x202 <__DATA_REGION_LENGTH__+0x2>
+ 20a:	00 c0       	rjmp	.+0      	; 0x20c <__DATA_REGION_LENGTH__+0xc>
+ 20c:	00 00       	nop
+			_delay_ms(30);
+			buttonflag = 0;
+ 20e:	10 92 00 3e 	sts	0x3E00, r1	; 0x803e00 <__DATA_REGION_ORIGIN__>
+			uint8_t buttons = PORTA.IN;
+ 212:	90 91 08 04 	lds	r25, 0x0408	; 0x800408 <__RODATA_PM_OFFSET__+0x7f8408>
+			if(!(buttons & Button1)){
+ 216:	99 23       	and	r25, r25
+ 218:	2c f0       	brlt	.+10     	; 0x224 <__DATA_REGION_LENGTH__+0x24>
+				speedMode++;
+ 21a:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <speedMode>
+ 21e:	8f 5f       	subi	r24, 0xFF	; 255
+ 220:	80 93 02 3e 	sts	0x3E02, r24	; 0x803e02 <speedMode>
+			}
+			if(!(buttons & Button2)){
+ 224:	96 fd       	sbrc	r25, 6
+ 226:	05 c0       	rjmp	.+10     	; 0x232 <__DATA_REGION_LENGTH__+0x32>
+				speedMode--;
+ 228:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <speedMode>
+ 22c:	81 50       	subi	r24, 0x01	; 1
+ 22e:	80 93 02 3e 	sts	0x3E02, r24	; 0x803e02 <speedMode>
+			}
+			if (speedMode < 0){ // Prevent mode from negative
+ 232:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <speedMode>
+ 236:	88 23       	and	r24, r24
+ 238:	14 f4       	brge	.+4      	; 0x23e <__DATA_REGION_LENGTH__+0x3e>
+				speedMode = 0;
+ 23a:	10 92 02 3e 	sts	0x3E02, r1	; 0x803e02 <speedMode>
+			}
+		}
+		
+		if(speedMode != lastMode){
+ 23e:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <speedMode>
+ 242:	48 2f       	mov	r20, r24
+ 244:	88 0f       	add	r24, r24
+ 246:	55 0b       	sbc	r21, r21
+ 248:	20 91 01 3e 	lds	r18, 0x3E01	; 0x803e01 <lastMode>
+ 24c:	30 e0       	ldi	r19, 0x00	; 0
+ 24e:	42 17       	cp	r20, r18
+ 250:	53 07       	cpc	r21, r19
+ 252:	79 f0       	breq	.+30     	; 0x272 <__DATA_REGION_LENGTH__+0x72>
+			TM_printNumber(speedMode);
+ 254:	ca 01       	movw	r24, r20
+ 256:	19 df       	rcall	.-462    	; 0x8a <__data_load_end>
+			lastMode = speedMode;
+ 258:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <speedMode>
+ 25c:	80 93 01 3e 	sts	0x3E01, r24	; 0x803e01 <lastMode>
+ 260:	2f e7       	ldi	r18, 0x7F	; 127
+ 262:	84 e8       	ldi	r24, 0x84	; 132
+ 264:	9e e1       	ldi	r25, 0x1E	; 30
+ 266:	21 50       	subi	r18, 0x01	; 1
+ 268:	80 40       	sbci	r24, 0x00	; 0
+ 26a:	90 40       	sbci	r25, 0x00	; 0
+ 26c:	e1 f7       	brne	.-8      	; 0x266 <__DATA_REGION_LENGTH__+0x66>
+ 26e:	00 c0       	rjmp	.+0      	; 0x270 <__DATA_REGION_LENGTH__+0x70>
+ 270:	00 00       	nop
+	PORTA.INTFLAGS = 0xff;
+	buttonflag = 1;
+}
+
+int main(void)
+{
+ 272:	c0 e0       	ldi	r28, 0x00	; 0
+ 274:	d0 e0       	ldi	r29, 0x00	; 0
+			TM_printNumber(speedMode);
+			lastMode = speedMode;
+			_delay_ms(1000);
+		}
+		for (uint16_t i = 0;;i++){
+			TM_printNumber(i);
+ 276:	ce 01       	movw	r24, r28
+ 278:	08 df       	rcall	.-496    	; 0x8a <__data_load_end>
+ 27a:	2f e7       	ldi	r18, 0x7F	; 127
+ 27c:	8a e1       	ldi	r24, 0x1A	; 26
+ 27e:	96 e0       	ldi	r25, 0x06	; 6
+ 280:	21 50       	subi	r18, 0x01	; 1
+ 282:	80 40       	sbci	r24, 0x00	; 0
+ 284:	90 40       	sbci	r25, 0x00	; 0
+ 286:	e1 f7       	brne	.-8      	; 0x280 <__DATA_REGION_LENGTH__+0x80>
+ 288:	00 c0       	rjmp	.+0      	; 0x28a <__DATA_REGION_LENGTH__+0x8a>
+ 28a:	00 00       	nop
+		if(speedMode != lastMode){
+			TM_printNumber(speedMode);
+			lastMode = speedMode;
+			_delay_ms(1000);
+		}
+		for (uint16_t i = 0;;i++){
+ 28c:	21 96       	adiw	r28, 0x01	; 1
+ 28e:	f3 cf       	rjmp	.-26     	; 0x276 <__DATA_REGION_LENGTH__+0x76>
+
+Disassembly of section .text.libgcc.mul:
+
+00000354 <__umulhisi3>:
+ 354:	a2 9f       	mul	r26, r18
+ 356:	b0 01       	movw	r22, r0
+ 358:	b3 9f       	mul	r27, r19
+ 35a:	c0 01       	movw	r24, r0
+ 35c:	a3 9f       	mul	r26, r19
+ 35e:	01 d0       	rcall	.+2      	; 0x362 <__umulhisi3+0xe>
+ 360:	b2 9f       	mul	r27, r18
+ 362:	70 0d       	add	r23, r0
+ 364:	81 1d       	adc	r24, r1
+ 366:	11 24       	eor	r1, r1
+ 368:	91 1d       	adc	r25, r1
+ 36a:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+000003bc <_fini>:
+ 3bc:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000003be <__funcs_on_exit>:
+ 3be:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+000003c0 <__simulator_exit>:
+ 3c0:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000003a2 <exit>:
+ 3a2:	ec 01       	movw	r28, r24
+ 3a4:	0c d0       	rcall	.+24     	; 0x3be <__funcs_on_exit>
+ 3a6:	0a d0       	rcall	.+20     	; 0x3bc <_fini>
+ 3a8:	ce 01       	movw	r24, r28
+ 3aa:	0a d0       	rcall	.+20     	; 0x3c0 <__simulator_exit>
+ 3ac:	ce 01       	movw	r24, r28
+ 3ae:	09 d0       	rcall	.+18     	; 0x3c2 <_Exit>
+
+Disassembly of section .text._Exit:
+
+000003c2 <_Exit>:
+ 3c2:	61 de       	rcall	.-830    	; 0x86 <_exit>
