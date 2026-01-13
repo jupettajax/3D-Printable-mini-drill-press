@@ -14,6 +14,8 @@
 #define Button1 PIN7_bm  // PORTA
 #define Button2 PIN6_bm  // PORTA
 #define LedPin PIN2_bm   // PORTA
+#define PWM PIN3_bm		 // PORTB
+#define Hall PIN4_bm	 // PORTA 
 
 // Display
 
@@ -21,8 +23,11 @@
 #define DIO PIN1_bm // PORTB
 
 volatile int8_t speedMode = 0; 
-uint8_t lastMode = 0;
+int8_t lastMode = 0;
 uint8_t buttonflag = 0;
+volatile uint16_t Pulses = 0;
+uint16_t RPM = 0; 
+uint8_t skiptime = 0; // Per 100ms
 
 const uint8_t digitMap[10] = {
 	0x3F, // 0
@@ -100,9 +105,12 @@ void TM_printNumber(uint16_t num)
 	for (uint8_t i = 0; i < 4; i++)
 	TM_sendByte(digits[i]);
 	TM_stop();
+	
 }
 
- 
+void setSpeed(uint16_t us){
+	TCA0.SINGLE.CMP0 = (uint32_t)us * 625 / 1000;
+}
 
 void setup(void){
 	// Setup cpu clockspeed
@@ -121,30 +129,49 @@ void setup(void){
 	PORTA.PIN6CTRL |= PORT_ISC_FALLING_gc;
 	// On board led output
 	PORTA.DIRSET = LedPin;
-	PORTA.OUTSET = LedPin; // Led on
+	// Hall input from motor sensor
+	PORTA.DIRCLR = Hall; // Hall pin to output
+	PORTA.PIN4CTRL = PORT_ISC_FALLING_gc;
 	// TM 1637 display
 	PORTB.DIRSET = CLK; // Both to output
 	PORTB.DIRSET = DIO;
 	PORTB.OUTSET = CLK; // Both high
 	PORTB.OUTSET = DIO;
-	// 
+	// Configure PWM output for ESC
+	PORTB.DIRSET = PWM; // PWM pin to output
+	PORTMUX_CTRLC = PORTMUX_TCA00_ALTERNATE_gc; // WO0 to alternate pin (PB3)
+
+	TCA0.SINGLE.CTRLB = TCA_SINGLE_WGMODE_SINGLESLOPE_gc | TCA_SINGLE_CMP0EN_bm;
+	TCA0.SINGLE.PER = 12500;
+	TCA0.SINGLE.CMP0 = 625;
+	TCA0.SINGLE.CTRLA = TCA_SINGLE_ENABLE_bm | TCA_SINGLE_CLKSEL_DIV16_gc;
+	
 	TM_displayInit();
 	sei();
+	PORTA.OUTSET = LedPin; // Led on
 }
 
 ISR(PORTA_PORT_vect){
+	if (PORTA.INTFLAGS & Hall)
+	{
+		Pulses++;
+		PORTA.OUTTGL = LedPin;
+	}
+	else
+	{
+		buttonflag = 1;
+	}
 	PORTA.INTFLAGS = 0xff;
-	buttonflag = 1;
 }
 
 int main(void)
 {
 	setup();
 	TM_printNumber(0000);
+	_delay_ms(1000);
     while(1)
     {
 		if(buttonflag){
-			_delay_ms(30);
 			buttonflag = 0;
 			uint8_t buttons = PORTA.IN;
 			if(!(buttons & Button1)){
@@ -153,21 +180,32 @@ int main(void)
 			if(!(buttons & Button2)){
 				speedMode--;
 			}
-			if (speedMode < 0){ // Prevent mode from negative
+			if (speedMode < 0){		 // Prevent mode from going negative
 				speedMode = 0;
 			}
 		}
 		
-		if(speedMode != lastMode){
-			TM_printNumber(speedMode);
+		if(lastMode != speedMode){			// Display mode for one second when changed
 			lastMode = speedMode;
-			_delay_ms(1000);
+			skiptime = 0;
 		}
-		for (uint16_t i = 0;;i++){
-			TM_printNumber(i);
-			_delay_ms(200);
+		
+		if (skiptime < 10)
+		{
+			TM_printNumber(speedMode);
+			skiptime++;
 		}
-		_delay_ms(20);
+		else
+		{
+			TM_printNumber(RPM);
+		}
+		
+		setSpeed(1000+speedMode*100);
+		
+		RPM = (uint16_t) Pulses / 0.1 * 60;
+		Pulses = 0;
+		
+		_delay_ms(100);
 		
     }
 }
