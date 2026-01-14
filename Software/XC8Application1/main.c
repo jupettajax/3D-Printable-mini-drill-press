@@ -195,17 +195,17 @@ int main(void)
 			TM_printNumber(speedMode);
 			skiptime++;
 		}
-		else
-		{
+		else{
+		
 			TM_printNumber(RPM);
 		}
 		
 		setSpeed(1000+speedMode*100);
 		
-		RPM = (uint16_t) Pulses / 0.1 * 60;
+		RPM = (uint16_t) Pulses / 0.06 * 60; // 6 pairs of magnets 
 		Pulses = 0;
 		
-		_delay_ms(100);
+		_delay_ms(10);
 		
     }
-}
+} 

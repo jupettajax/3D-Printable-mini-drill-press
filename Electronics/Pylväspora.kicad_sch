@@ -2004,6 +2004,16 @@
 		)
 		(uuid "3a252d3b-ddee-4f89-84d9-320470fdd946")
 	)
+	(text "Hall sensor needs external pullup"
+		(exclude_from_sim no)
+		(at 230.378 54.864 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6502c17c-bbfc-4f75-8c41-daae89994421")
+	)
 	(text "Buttons"
 		(exclude_from_sim no)
 		(at 239.522 102.362 0)
@@ -2034,7 +2044,7 @@
 		)
 		(uuid "c0562e6b-fbac-43b3-a018-86cd4f2d7516")
 	)
-	(text "Outputs"
+	(text "Display Output + hall input"
 		(exclude_from_sim no)
 		(at 225.298 34.036 0)
 		(effects
@@ -2079,6 +2089,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "78abe1a9-ed2f-4b09-b7bf-c60f905f66ad")
+	)
+	(junction
+		(at 207.01 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "88dddae6-0603-4395-a03e-d0dd3ad24047")
+	)
+	(junction
+		(at 207.01 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9845303c-3e95-4e64-a9fd-16307bc67938")
 	)
 	(junction
 		(at 43.18 34.29)
@@ -2226,16 +2248,6 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 59.69) (xy 209.55 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5112371c-37c0-4138-9839-0848c2c6a229")
-	)
-	(wire
-		(pts
 			(xy 224.79 119.38) (xy 224.79 124.46)
 		)
 		(stroke
@@ -2286,7 +2298,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 62.23) (xy 209.55 62.23)
+			(xy 203.2 62.23) (xy 207.01 62.23)
 		)
 		(stroke
 			(width 0)
@@ -2333,16 +2345,6 @@
 			(type default)
 		)
 		(uuid "832c66ba-a855-4263-bfc7-ed6a9edab769")
-	)
-	(wire
-		(pts
-			(xy 205.74 55.88) (xy 205.74 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "84aa043a-93e1-4878-b602-a5ee34b4c68d")
 	)
 	(wire
 		(pts
@@ -2413,6 +2415,16 @@
 			(type default)
 		)
 		(uuid "9c18c494-c10a-44ce-b2f0-d3e56ee1d627")
+	)
+	(wire
+		(pts
+			(xy 207.01 53.34) (xy 207.01 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a691e564-e286-4eee-beb1-0a64b19807e4")
 	)
 	(wire
 		(pts
@@ -2506,6 +2518,16 @@
 	)
 	(wire
 		(pts
+			(xy 207.01 53.34) (xy 209.55 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfafd0b3-9390-43a4-9229-94eeb275d28e")
+	)
+	(wire
+		(pts
 			(xy 149.86 81.28) (xy 146.05 81.28)
 		)
 		(stroke
@@ -2513,6 +2535,16 @@
 			(type default)
 		)
 		(uuid "c2ef148a-06e1-40eb-b741-18ddcdab739b")
+	)
+	(wire
+		(pts
+			(xy 209.55 53.34) (xy 209.55 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca20fdf9-9e3e-445d-ab7e-6a419991e839")
 	)
 	(wire
 		(pts
@@ -2546,7 +2578,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 55.88) (xy 205.74 55.88)
+			(xy 195.58 53.34) (xy 207.01 53.34)
 		)
 		(stroke
 			(width 0)
@@ -2573,6 +2605,16 @@
 			(type default)
 		)
 		(uuid "f5c051c0-221a-4217-acbf-eb7445155923")
+	)
+	(wire
+		(pts
+			(xy 207.01 62.23) (xy 209.55 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6b76a99-6deb-4f61-bcc9-2d87dd2bd33a")
 	)
 	(global_label "SCK"
 		(shape input)
@@ -2664,7 +2706,7 @@
 	)
 	(global_label "3.3V"
 		(shape input)
-		(at 209.55 55.88 180)
+		(at 195.58 53.34 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2674,7 +2716,7 @@
 		)
 		(uuid "5907bf25-3840-418d-9636-00dea10adc8e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 202.4524 55.88 0)
+			(at 188.4824 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3338,6 +3380,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 207.01 58.42 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "67539a2e-788d-4fa6-8928-5f06b38d0709")
+		(property "Reference" "R3"
+			(at 203.708 57.658 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 207.01 58.166 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+			(at 208.788 58.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 207.01 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 207.01 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5a578513-7b8e-4c76-95fd-646c743d3da8")
+		)
+		(pin "2"
+			(uuid "ef34c0cd-6533-4ab5-b4f6-469f8b9d1154")
+		)
+		(instances
+			(project "Pylväspora"
+				(path "/20710b63-7e35-457a-8d30-c30f218c011d"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
 		(at 33.02 36.83 180)
 		(unit 1)
@@ -3745,7 +3854,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 202.946 52.324 0)
+			(at 199.136 49.276 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3943,7 +4052,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8fcde42e-e5f3-40fb-abce-8f236b1e9ab0")
-		(property "Reference" "Feedback1"
+		(property "Reference" "Hallinput1"
 			(at 217.17 60.9599 0)
 			(effects
 				(font
@@ -4000,7 +4109,7 @@
 		(instances
 			(project ""
 				(path "/20710b63-7e35-457a-8d30-c30f218c011d"
-					(reference "Feedback1")
+					(reference "Hallinput1")
 					(unit 1)
 				)
 			)
@@ -4551,10 +4660,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d5f5b5c2-887b-49c7-ba2a-534888e75c17")
 		(property "Reference" "R1"
-			(at 199.39 55.88 90)
+			(at 197.104 58.166 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4562,7 +4670,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 199.39 58.42 90)
+			(at 199.39 62.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
